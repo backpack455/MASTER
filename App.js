@@ -21,6 +21,7 @@ import SplashScreen from "./screens/AuthScreens/SplashScreen";
 import LoginScreen from "./screens/AuthScreens/TestLoginScreen";
 import RegisterScreen from "./screens/AuthScreens/TestRegisterScreen";
 import OptionsScreen from "./screens/MainScreens/OptionsScreen";
+import NewQuestionScreen from "./screens/MainScreens/NewQuestionScreen";
 import Firebasekeys from "./config";
 import * as firebase from "firebase";
 
@@ -121,7 +122,7 @@ function MainTabs(){
           barStyle={{ backgroundColor: `${themecolor}`, bottomPadding: 10}}
           shifting={true}
         >
-          <Tab.Screen name="Problem Calculator" component={ProblemsScreen} 
+          <Tab.Screen name="Problem Calculator" component={HomeScreen} 
           options={{
             tabBarIcon: ({focused}) => (
               <MaterialCommunityIcons name="calculator-variant" size={26}  color={(focused ? tabcolor: inactiveColor )}/>
