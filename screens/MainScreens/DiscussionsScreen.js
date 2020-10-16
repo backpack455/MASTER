@@ -1,12 +1,89 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { ActivityIndicator } from 'react-native'
+import { StyleSheet, Text, View, TextInput, FlatList, Button, TouchableOpacity } from "react-native";
+import { AntDesign, MaterialIcons, Entypo } from "@expo/vector-icons";
+import Firebasekeys from "../../config";
+import * as firebase from "firebase";
+import "firebase/firestore";
 
-export default function App() {
+let firebaseConfig = Firebasekeys;
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+
+export default function App({navigation}) {
+  const [loading, setLoading] = useState(true); // Set loading to true on component mount
+  const [users, setUsers] = useState([]); // Initial empty array of users
+
+  useEffect(() => {
+    const subscriber = firebase.firestore()
+      .collection('Lectures')
+      .onSnapshot(querySnapshot => {
+        const users = [];
+        querySnapshot.forEach(documentSnapshot => {
+          users.push({
+            ...documentSnapshot.data(),
+            key: documentSnapshot.id,
+          });
+        });
+  
+        setUsers(users);
+        setLoading(false);
+      });
+  
+    // Unsubscribe from events when no longer in use
+    return () => subscriber();
+  }, []);
+
+  if (loading) {
+    return <ActivityIndicator />;
+  }
   return (
     <View style={styles.container}>
-      <Text>Discussion Screen!</Text>
-      <StatusBar style="auto" />
+      <Text style={styles.title}>Discussions</Text>
+      <TextInput style={styles.searchBar} placeholder="Search discussions" />
+      <FlatList
+      data={users}
+      renderItem={({ item }) => (
+        <View style={styles.noteContainer}>
+
+          <Button color={"#8B8B8B"} title={item.title} onPress={() => {navigation.navigate('Audio', {
+            docName: item.title,
+          });}} />
+          <TouchableOpacity styles={styles.trash} onPress={() =>
+            Alert.alert(
+              "Delete Note",
+              "Would you like to delete this note",
+              [
+                {
+                  text: "Yes",
+                  onPress: () => firebase.firestore().collection('Lectures').doc(item.key).delete(),
+                },
+                {
+                  text: "No",
+                  onPress: () => console.log("No Pressed"),
+                },
+              ],
+              { cancelable: true }
+            )
+          }>
+            {/* <FontAwesome5 style={styles.trash} name="trash" size={25} /> */}
+            <MaterialIcons style={styles.people} name="people" size={25} />
+            <Text style={styles.one}>0</Text>
+            <Text style={styles.two}>0</Text>
+            <Entypo style={styles.message} name="chat" size={25} />
+            <Entypo style={styles.add} name="add-to-list" size={30} />
+          </TouchableOpacity>
+        </View>
+      )}
+    />
+    <View style={styles.buttonContainer}>
+        <TouchableOpacity onPress={()=> navigation.navigate('Start Lecture')}>
+          <View style={styles.addNoteContainer}>
+            <AntDesign style={styles.addNote} name="plus" size={35} />
+          </View>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -14,8 +91,190 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+  },
+  title: {
+    textAlign: "center",
+    fontSize: 40,
+    fontWeight: "bold",
+    top: 75,
+    fontFamily: "Avenir",
+    marginBottom: 35,
+  },
+  subtitle: {
+    color: "#A8A8A8",
+    fontSize: 25,
+    top: 45,
+  },
+  searchBar: {
+    height: 45,
+    width: 350,
+    borderWidth: 1,
+    borderRadius: 45,
+    borderColor: "#F9A826",
+    textAlign: "left",
+    color: "#BBBBBB",
+    backgroundColor: "#fff",
+    fontWeight: "bold",
+    top: 100,
+    paddingLeft: 15
+  },
+  buttonText: {
+    fontFamily: "Avenir",
+    fontSize: 20,
+    textAlign: "center",
+    color: "white",
+    fontWeight: "bold",
+    textAlignVertical: "center",
+  },
+  textInput: {
+    height: 65,
+    width: 313,
+    borderColor: "#fff",
+    borderWidth: 1,
+    borderRadius: 15,
+    textAlign: "center",
+    color: "#BBBBBB",
+    backgroundColor: "#ECECEC",
+    fontWeight: "bold",
+    top: 55,
+  },
+  buttonContainer: {
+    alignItems: "center",
+    flex: 0.3,
+    padding: 80,
+    top: 30,
+  },
+  options1Container: {
+    padding: 10,
+    height: 110,
+    width: 180, 
+    borderRadius: 10, 
+    backgroundColor: "#F9A826",
+    right: 90,
+    marginRight: 10,
+  },
+  option1Text: {
+    left: 100,
+    color: "#fff",
+    fontSize: 25,
+    bottom: 80,
+    fontWeight: "bold",
+  },
+  options2Container: {
+    padding: 10,
+    height: 110,
+    width: 180, 
+    borderRadius: 10, 
+    backgroundColor: "#F9A826",
+    right: -100,
+    bottom: 110,
+  },
+  option2Text: {
+    left: 85,
+    color: "#fff",
+    fontSize: 25,
+    bottom: 80,
+    fontWeight: "bold",
+  },
+  options3Container: {
+    padding: 10,
+    height: 110,
+    width: 180, 
+    borderRadius: 10, 
+    backgroundColor: "#F9A826",
+    left: -95,
+    bottom: 110,
+    marginTop: 10,
+  },
+  option3Text: {
+    left: 60,
+    color: "#fff",
+    fontSize: 25,
+    bottom: 80,
+    fontWeight: "bold",
+  },
+  options4Container: {
+    padding: 10,
+    height: 110,
+    width: 180, 
+    borderRadius: 10, 
+    backgroundColor: "#F9A826",
+    right: -100,
+    bottom: 220,
+  },
+  option4Text: {
+    left: 65,
+    color: "#fff",
+    fontSize: 25,
+    bottom: 60,
+    fontWeight: "bold",
+  },
+  goBack: {
+    top: 2,
+    left: 3,
+    color: "#fff",
+  },
+  noteContainer: {
+    top: 150,
+    paddingTop: 40,
+    paddingBottom: 40,
+    paddingLeft: 20,
+    paddingRight: 50,
+    backgroundColor: "#ECECEC",
+    borderRadius: 10,
+    marginBottom: 20,
+    width: 350,
+    textAlign: "left"
+  },
+  trash: {
+    right: -30,
+    bottom: 20,
+    position: "absolute",
+    color: "#F9A826",
+  },
+  one: {
+    left: 100,
+    bottom: -25,
+    position: "absolute",
+  },
+  two: {
+    left: 240,
+    bottom: -25,
+    position: "absolute",
+  },
+  people: {
+    left: 210,
+    bottom: -30,
+    position: "absolute",
+  },
+  message: {
+    left: 70,
+    bottom: -30,
+    position: "absolute",
+  },
+  add: {
+    left: 280,
+    top: -50,
+    position: "absolute",
+  },
+  buttonContainer: {
+    alignItems: "center",
+    flex: 0.3,
+    padding: 80,
+    top: 30,
+  },
+  addNoteContainer: {
+    padding: 10,
+    height: 60,
+    width: 60, //The Width must be the same as the height
+    borderRadius: 100, //Then Make the Border Radius twice the size of width or Height
+    backgroundColor: "#F9A826",
+  },
+  addNote: {
+    top: 2,
+    left: 3,
+    color: "#fff",
   },
 });

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ActivityIndicator } from 'react-native'
 import { StyleSheet, Text, View, TextInput, FlatList, Button, TouchableOpacity } from "react-native";
-import { FontAwesome5, AntDesign } from "@expo/vector-icons";
+import { FontAwesome5, } from "@expo/vector-icons";
 import Firebasekeys from "../../config";
 import * as firebase from "firebase";
 import "firebase/firestore";
