@@ -248,16 +248,19 @@ const styles = StyleSheet.create({
     left: 210,
     bottom: -30,
     position: "absolute",
+    color: "#F9A826",
   },
   message: {
     left: 70,
     bottom: -30,
     position: "absolute",
+    color: "#F9A826",
   },
   add: {
     left: 280,
     top: -50,
     position: "absolute",
+    color: "#F9A826",
   },
   buttonContainer: {
     alignItems: "center",
