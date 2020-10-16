@@ -41,8 +41,7 @@ export default function App({navigation}) {
   }
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>My Lectures</Text>
-      <Text style={styles.subtitle}>Choose your current lecture.</Text>
+      <Text style={styles.title}>My Concepts</Text>
       <FlatList
       data={users}
       renderItem={({ item }) => (
@@ -68,7 +67,7 @@ export default function App({navigation}) {
               { cancelable: true }
             )
           }>
-            <FontAwesome5 style={styles.trash} name="trash" size={17} />
+            <FontAwesome5 style={styles.trash} name="trash" size={25} />
           </TouchableOpacity>
         </View>
       )}
@@ -154,9 +153,9 @@ const styles = StyleSheet.create({
     textAlign: "left"
   },
   trash: {
-    right: -20,
-    bottom: 10,
+    right: -30,
+    bottom: 20,
     position: "absolute",
-    color: "#C1C1C1",
+    color: "#F9A826",
   },
 });

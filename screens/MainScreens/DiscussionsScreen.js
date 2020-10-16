@@ -5,7 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>My Notes Screen!</Text>
+      <Text>Discussion Screen!</Text>
       <StatusBar style="auto" />
     </View>
   );

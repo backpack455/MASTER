@@ -76,7 +76,7 @@ export default function App({navigation}) {
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={styles.picture}
-          onPress={() => navigation.navigate("")}
+          onPress={() => navigation.navigate("Options")}
         >
           <Text style={styles.buttonText}>Solve a problem</Text>
         </TouchableOpacity>
