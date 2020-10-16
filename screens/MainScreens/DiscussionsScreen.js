@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
   },
   noteContainer: {
     top: 150,
-    paddingTop: 40,
+    paddingTop: 20,
     paddingBottom: 40,
     paddingLeft: 20,
     paddingRight: 50,
