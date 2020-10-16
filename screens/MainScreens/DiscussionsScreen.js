@@ -67,13 +67,12 @@ export default function App({navigation}) {
               { cancelable: true }
             )
           }>
-            {/* <FontAwesome5 style={styles.trash} name="trash" size={25} /> */}
-            <MaterialIcons style={styles.people} name="people" size={25} />
+            </TouchableOpacity>
+            <TouchableOpacity><MaterialIcons style={styles.people} name="people" size={25} /></TouchableOpacity>
             <Text style={styles.one}>0</Text>
             <Text style={styles.two}>0</Text>
-            <Entypo style={styles.message} name="chat" size={25} />
-            <Entypo style={styles.add} name="add-to-list" size={30} />
-          </TouchableOpacity>
+            <TouchableOpacity><Entypo style={styles.message} name="chat" size={25} /></TouchableOpacity>
+            <TouchableOpacity><Entypo style={styles.add} name="add-to-list" size={30} /></TouchableOpacity>
         </View>
       )}
     />
@@ -235,13 +234,13 @@ const styles = StyleSheet.create({
     color: "#F9A826",
   },
   one: {
-    left: 100,
-    bottom: -25,
+    left: 125,
+    top: 85,
     position: "absolute",
   },
   two: {
-    left: 240,
-    bottom: -25,
+    left: 260,
+    top: 87,
     position: "absolute",
   },
   people: {
