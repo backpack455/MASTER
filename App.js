@@ -24,7 +24,7 @@ import OptionsScreen from "./screens/MainScreens/OptionsScreen";
 import Firebasekeys from "./config";
 import * as firebase from "firebase";
 
-import ImageResultScreen from "./screens/MainScreens/ExportDetectedTextScreen"
+import ImageResultScreen from "./screens/MainScreens/ImageResultScreen"
 import ExportDetectedText from "./screens/MainScreens/MyNotesDetectedText"
 
 import "firebase/firestore";
@@ -120,7 +120,7 @@ function MainTabs(){
           barStyle={{ backgroundColor: `${themecolor}`, bottomPadding: 10}}
           shifting={true}
         >
-          <Tab.Screen name="Problem Calculator" component={OptionsScreen} 
+          <Tab.Screen name="Problem Calculator" component={ImageResultScreen} 
           options={{
             tabBarIcon: ({focused}) => (
               <MaterialCommunityIcons name="calculator-variant" size={26}  color={(focused ? tabcolor: inactiveColor )}/>
