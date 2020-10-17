@@ -59,7 +59,7 @@ export default function App({navigation}) {
             <Text style={styles.option1Text}>Text</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={()=> ChooseImage}>
+        <TouchableOpacity onPress={()=> ChooseImage()}>
           <View style={styles.options2Container}>
           <Image
           source={require("./../../assets/icons8-cameras-96.png")}

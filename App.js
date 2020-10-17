@@ -9,19 +9,16 @@ import {MaterialIcons ,Ionicons, Octicons, Entypo, MaterialCommunityIcons, FontA
 import SelectLectureScreen from "./screens/MainScreens/SelectLectureScreen";
 
 import ExportDetectedTextScreen from "./screens/MainScreens/ExportDetectedTextScreen";
-import MyNotesAddImageScreen from "./screens/MainScreens/MyNotesAddImageNotesScreen";
 import DiscussionsScreen from './screens/MainScreens/DiscussionsScreen'
 import AccessArchiveScreen from './screens/MainScreens/AccessArchiveScreen'
 import ManualInputScreen from './screens/MainScreens/NewQuestionScreen'
 import ProblemSolverNavigator from './screens/MainScreens/OptionsScreen'
 // import MyNotesDetectedTextScreen from "./screens/MainScreens/MyNotesDetectedText";
 import AudioNotesScreen from "./screens/MainScreens/AudioNotesScreen";
-import ImageNotesScreen from "./screens/MainScreens/CameraScreen";
 import SplashScreen from "./screens/AuthScreens/SplashScreen";
 import LoginScreen from "./screens/AuthScreens/TestLoginScreen";
 import RegisterScreen from "./screens/AuthScreens/TestRegisterScreen";
 import OptionsScreen from "./screens/MainScreens/OptionsScreen";
-import NewQuestionScreen from "./screens/MainScreens/NewQuestionScreen";
 import Firebasekeys from "./config";
 import * as firebase from "firebase";
 
@@ -30,7 +27,6 @@ import ExportDetectedText from "./screens/MainScreens/MyNotesDetectedText";
 import ProblemsScreen from "./screens/MainScreens/ProblemsScreen"
 
 import "firebase/firestore";
-import CameraScreen from "./screens/MainScreens/MyNotesAddImageNotesScreen";
 
 let firebaseConfig = Firebasekeys;
 if (!firebase.apps.length) {
@@ -98,7 +94,7 @@ const ImageNavigator = ({ navigation }) => {
       />
       <Image.Screen name="Manual Input" component={ManualInputScreen} />
 
-      <Image.Screen name="Image Input" component={CameraScreen} />
+      {/* <Image.Screen name="Image Input" component={SCameracreen} /> */}
       <Image.Screen
         name="Problem Results"
         component={ImageResultScreen}
@@ -126,7 +122,7 @@ function MainTabs(){
           barStyle={{ backgroundColor: `${themecolor}`, bottomPadding: 10}}
           shifting={true}
         >
-          <Tab.Screen name="Problem Calculator" component={HomeScreen} 
+          <Tab.Screen name="Problem Calculator" component={ImageNavigator} 
           options={{
             tabBarIcon: ({focused}) => (
               <MaterialCommunityIcons name="calculator-variant" size={26}  color={(focused ? tabcolor: inactiveColor )}/>
