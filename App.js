@@ -13,7 +13,7 @@ import MyNotesAddImageScreen from "./screens/MainScreens/MyNotesAddImageNotesScr
 import DiscussionsScreen from './screens/MainScreens/DiscussionsScreen'
 import AccessArchiveScreen from './screens/MainScreens/AccessArchiveScreen'
 import ManualInputScreen from './screens/MainScreens/ManualInputScreen'
-import ProblemSolverNavigator from './screens/MainScreens/ProblemSolverNavigator'
+import ProblemSolverNavigator from './screens/MainScreens/OptionsScreen'
 // import MyNotesDetectedTextScreen from "./screens/MainScreens/MyNotesDetectedText";
 import AudioNotesScreen from "./screens/MainScreens/AudioNotesScreen";
 import ImageNotesScreen from "./screens/MainScreens/CameraScreen";
@@ -86,10 +86,14 @@ const ImageNavigator = ({ navigation }) => {
         headerShown: false,
       }}
 
-      initialRouteName="Option Navigation"
+      initialRouteName="Home Screen"
     >
       <Image.Screen
-        name="Export Detected Text"
+        name="Home Screen"
+        component={HomeScreen}
+      />
+      <Image.Screen
+        name="Option Navigation"
         component={ProblemSolverNavigator}
       />
       <Image.Screen name="Manual Input" component={ManualInputScreen} />
@@ -122,7 +126,7 @@ function MainTabs(){
           barStyle={{ backgroundColor: `${themecolor}`, bottomPadding: 10}}
           shifting={true}
         >
-          <Tab.Screen name="Problem Calculator" component={HomeScreen} 
+          <Tab.Screen name="Problem Calculator" component={ImageNavigator} 
           options={{
             tabBarIcon: ({focused}) => (
               <MaterialCommunityIcons name="calculator-variant" size={26}  color={(focused ? tabcolor: inactiveColor )}/>

@@ -79,20 +79,22 @@ export default function App({navigation}) {
         </TouchableOpacity>
         <TouchableOpacity>
           <View style={styles.options4Container}>
-          <Image
-          source={require("./../../assets/icons8-book-and-pencil-96.png")}
-          style={{ height: 70, left: -10, top: 10,}}
-        /> 
-            <Text style={styles.option4Text}>Draw</Text>
-            <Text style={styles.option4Text}>Question</Text>
+            <View style={{top: 30}}>
+            <Image
+            source={require("./../../assets/icons8-book-and-pencil-96.png")}
+            style={{ height: 58, width: 50, left: 5, top: -5}}
+          /> 
+              <Text style={styles.option4Text}>Draw</Text>
+              <Text style={styles.option4Text}>Question</Text>
+            </View>
           </View>
         </TouchableOpacity>
       </View>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={()=> navigation.navigate('Start Lecture')}>
+        <TouchableOpacity onPress={()=> navigation.navigate('Home Screen')}>
         <Image
           source={require("./../../assets/icons8-back-arrow-100.png")}
-          style={{top: 35,}}
+          style={{top: 80, width: 55, height: 55}}
         /> 
         </TouchableOpacity>
       </View>
@@ -143,7 +145,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flex: 0.3,
     padding: 80,
-    top: 30,
   },
   options1Container: {
     padding: 10,
@@ -196,19 +197,20 @@ const styles = StyleSheet.create({
   },
   options4Container: {
     padding: 10,
-    height: 110,
+    height: 77,
     width: 180, 
     borderRadius: 10, 
     backgroundColor: "#F9A826",
     right: -100,
     bottom: 220,
+    justifyContent: 'center'
   },
   option4Text: {
     left: 65,
     color: "#fff",
-    fontSize: 25,
+    fontSize: 20,
     bottom: 60,
-    fontWeight: "bold",
+    fontWeight: "bold"
   },
   goBack: {
     top: 2,
