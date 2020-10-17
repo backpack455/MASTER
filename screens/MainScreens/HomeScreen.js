@@ -82,7 +82,7 @@ export default function App({navigation}) {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.lecture}
-          onPress={() => navigation.navigate("Discussion")}
+          onPress={() => navigation.navigate("Discussions")}
         >
           <Text style={styles.buttonText}>Chat with peers</Text>
         </TouchableOpacity>

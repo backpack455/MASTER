@@ -105,10 +105,13 @@ export default function App({navigation, route}) {
       data={users}
       renderItem={({ item }) => (
         <View style={styles.noteContainer}>
-        <Button
-          color={"#8B8B8B"}
-          title={item.notes}
-        />
+          <TouchableOpacity  onPress={()=> navigation.navigate('Archive')}>
+            <Button
+              color={"#8B8B8B"}
+              title={item.notes}   
+              onPress={()=> navigation.navigate('Archive')}
+            />
+          </TouchableOpacity>
         <FontAwesome5
           style={styles.trash}
           name="trash"

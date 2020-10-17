@@ -74,7 +74,7 @@ export default function App({navigation}) {
         <TouchableOpacity onPress={()=> navigation.navigate('Start Lecture')}>
         <Image
           source={require("./../../assets/icons8-back-arrow-100.png")}
-          style={{top: 35,}}
+          style={{top: 35, height: 55, width: 55}}
         /> 
         </TouchableOpacity>
       </View>

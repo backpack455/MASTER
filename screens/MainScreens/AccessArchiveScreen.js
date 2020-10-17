@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ActivityIndicator } from 'react-native'
-import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView, FlatList } from "react-native";
 import Firebasekeys from "../../config";
 import * as firebase from "firebase";
 import "firebase/firestore";
@@ -41,10 +41,12 @@ export default function App({navigation}) {
     <View style={styles.container}>
       <Text style={styles.title}>Access Archive</Text>
       <Text style={styles.subtitle}>Archiving results for</Text>
-      <Image
-          source={require("./../../assets/result.png")}
-          style={{ top: 75,}}
-        />
+      <ScrollView style={{ width: 332, height: 100}}>
+        <Image
+            source={require("./../../assets/result.png")}
+            style={{ top: 75,}}
+          />
+        </ScrollView>
     </View>
   );
 }

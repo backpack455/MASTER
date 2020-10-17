@@ -47,7 +47,7 @@ export default function App({navigation}) {
           style={{ width: 350, height: 290, top: 75,}}
         />
         <View style={styles.buttonContainer}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=> navigation.navigate('Manual Input')}>
           <View style={styles.options1Container}>
           <Image
           source={require("./../../assets/icons8-keyboard-96.png")}
@@ -57,7 +57,7 @@ export default function App({navigation}) {
             <Text style={styles.option1Text}>Text</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=> navigation.navigate('Problem Results')}>
           <View style={styles.options2Container}>
           <Image
           source={require("./../../assets/icons8-cameras-96.png")}
