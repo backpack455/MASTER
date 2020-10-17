@@ -41,10 +41,10 @@ export default function App({navigation}) {
     <View style={styles.container}>
       <Text style={styles.title}>Enter Your Question</Text>
       <TextInput style={styles.searchBar} placeholder="Type your question" />
+      <Text style={styles.exampleText}>Example Questions:</Text>
         <View style={styles.noteContainer}>
 
-          <Button color={"#8B8B8B"} title={item.title} onPress={() => {navigation.navigate('Audio', {
-            docName: item.title,
+          <Button color={"#8B8B8B"} title={"What is the solution to x if x is an integer below 15 but satisifes the..."} onPress={() => {navigation.navigate('Audio', {
           });}} />
           <TouchableOpacity styles={styles.trash} onPress={() =>
             Alert.alert(
@@ -69,7 +69,7 @@ export default function App({navigation}) {
         <TouchableOpacity onPress={()=> navigation.navigate('Start Lecture')}>
         <Image
           source={require("./../../assets/icons8-back-arrow-100.png")}
-          style={{top: 35, height: 55, width: 55}}
+          style={{top: 325, height: 55, width: 55}}
         /> 
         </TouchableOpacity>
       </View>
@@ -108,6 +108,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     top: 100,
     paddingLeft: 15
+  },
+  exampleText: {
+      top: 125,
+      fontFamily: "Avenir",
+      fontSize: 20,
+      color: "#A8A8A8"
   },
   buttonText: {
     fontFamily: "Avenir",
@@ -200,15 +206,10 @@ const styles = StyleSheet.create({
     bottom: 60,
     fontWeight: "bold",
   },
-  goBack: {
-    top: 2,
-    left: 3,
-    color: "#fff",
-  },
   noteContainer: {
     top: 150,
-    paddingTop: 40,
-    paddingBottom: 40,
+    paddingTop: 20,
+    paddingBottom: 20,
     paddingLeft: 20,
     paddingRight: 50,
     backgroundColor: "#ECECEC",

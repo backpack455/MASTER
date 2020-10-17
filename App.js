@@ -126,7 +126,7 @@ function MainTabs(){
           barStyle={{ backgroundColor: `${themecolor}`, bottomPadding: 10}}
           shifting={true}
         >
-          <Tab.Screen name="Problem Calculator" component={ImageResultScreen} 
+          <Tab.Screen name="Problem Calculator" component={HomeScreen} 
           options={{
             tabBarIcon: ({focused}) => (
               <MaterialCommunityIcons name="calculator-variant" size={26}  color={(focused ? tabcolor: inactiveColor )}/>
