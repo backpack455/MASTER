@@ -15,7 +15,9 @@ if (!firebase.apps.length) {
 export default function App({navigation}) {
   const [loading, setLoading] = useState(true); // Set loading to true on component mount
   const [users, setUsers] = useState([]); // Initial empty array of users
-
+  const ChooseImage = () => {
+    navigation.navigate('Problem Results')
+  }
   useEffect(() => {
     const subscriber = firebase.firestore()
       .collection('Lectures')
@@ -57,12 +59,12 @@ export default function App({navigation}) {
             <Text style={styles.option1Text}>Text</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={()=> navigation.navigate('Problem Results')}>
+        <TouchableOpacity onPress={()=> ChooseImage}>
           <View style={styles.options2Container}>
           <Image
           source={require("./../../assets/icons8-cameras-96.png")}
         /> 
-            <Text style={styles.option2Text}>Take a</Text>
+            <Text style={styles.option2Text}>Choose a</Text>
             <Text style={styles.option2Text}>Picture</Text>
           </View>
         </TouchableOpacity>
