@@ -51,7 +51,7 @@ export default function App({navigation}) {
           <View style={styles.options1Container}>
           <Image
           source={require("./../../assets/icons8-keyboard-96.png")}
-          style={{ height: 90, bottom: 10}}
+          style={{bottom: 5,}}
         /> 
             <Text style={styles.option1Text}>Input</Text>
             <Text style={styles.option1Text}>Text</Text>
@@ -61,7 +61,6 @@ export default function App({navigation}) {
           <View style={styles.options2Container}>
           <Image
           source={require("./../../assets/icons8-cameras-96.png")}
-          style={{ height: 90}}
         /> 
             <Text style={styles.option2Text}>Take a</Text>
             <Text style={styles.option2Text}>Picture</Text>
@@ -71,7 +70,7 @@ export default function App({navigation}) {
           <View style={styles.options3Container}>
           <Image
           source={require("./../../assets/icons8-microphone-96.png")}
-          style={{ height: 90, left: -15,}}
+          style={{ left: -15,}}
         /> 
             <Text style={styles.option3Text}>Record</Text>
             <Text style={styles.option3Text}>Question</Text>
@@ -148,51 +147,54 @@ const styles = StyleSheet.create({
   },
   options1Container: {
     padding: 10,
-    height: 110,
+    height: 75,
     width: 180, 
     borderRadius: 10, 
     backgroundColor: "#F9A826",
     right: 90,
     marginRight: 10,
+    marginBottom: 40, 
   },
   option1Text: {
-    left: 100,
+    left: 90,
     color: "#fff",
-    fontSize: 25,
-    bottom: 80,
+    fontSize: 20,
+    bottom: 60,
     fontWeight: "bold",
   },
   options2Container: {
     padding: 10,
-    height: 110,
+    height: 75,
     width: 180, 
     borderRadius: 10, 
     backgroundColor: "#F9A826",
     right: -100,
-    bottom: 110,
+    bottom: 115,
+    marginBottom: 5,
   },
   option2Text: {
-    left: 85,
+    left: 70,
     color: "#fff",
-    fontSize: 25,
-    bottom: 80,
+    fontSize: 20,
+    bottom: 55,
     fontWeight: "bold",
   },
   options3Container: {
     padding: 10,
-    height: 110,
+    height: 75,
     width: 180, 
     borderRadius: 10, 
     backgroundColor: "#F9A826",
     left: -95,
     bottom: 110,
+    marginTop: 35,
     marginTop: 10,
   },
   option3Text: {
     left: 60,
     color: "#fff",
-    fontSize: 25,
-    bottom: 80,
+    fontSize: 20,
+    bottom: 60,
     fontWeight: "bold",
   },
   options4Container: {
@@ -203,6 +205,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#F9A826",
     right: -100,
     bottom: 220,
+    marginTop: 35,
     justifyContent: 'center'
   },
   option4Text: {
