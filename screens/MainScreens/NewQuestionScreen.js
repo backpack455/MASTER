@@ -71,7 +71,7 @@ export default function App({navigation}) {
       )}
     />
     <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={()=> navigation.navigate('Start Lecture')}>
+        <TouchableOpacity onPress={()=> navigation.navigate('Option Navigation')}>
         <Image
           source={require("./../../assets/icons8-back-arrow-100.png")}
           style={{top: 35, height: 55, width: 55}}
