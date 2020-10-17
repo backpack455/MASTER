@@ -12,7 +12,7 @@ import ExportDetectedTextScreen from "./screens/MainScreens/ExportDetectedTextSc
 import MyNotesAddImageScreen from "./screens/MainScreens/MyNotesAddImageNotesScreen";
 import DiscussionsScreen from './screens/MainScreens/DiscussionsScreen'
 import AccessArchiveScreen from './screens/MainScreens/AccessArchiveScreen'
-import ManualInputScreen from './screens/MainScreens/ManualInputScreen'
+import ManualInputScreen from './screens/MainScreens/NewQuestionScreen'
 import ProblemSolverNavigator from './screens/MainScreens/OptionsScreen'
 // import MyNotesDetectedTextScreen from "./screens/MainScreens/MyNotesDetectedText";
 import AudioNotesScreen from "./screens/MainScreens/AudioNotesScreen";
@@ -74,7 +74,7 @@ const ArchiveNavigator = ({ navigation }) => {
         component={MyNotesDetectedTextScreen}
       /> */}
 
-<Image.Screen name="Audio" component={AudioNotesScreen} />
+      <Image.Screen name="Audio" component={AudioNotesScreen} />
       <Home.Screen name="Archive" component={AccessArchiveScreen} />
     </Home.Navigator>
   );
