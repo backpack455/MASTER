@@ -47,26 +47,10 @@ export default function App({navigation}) {
       renderItem={({ item }) => (
         <View style={styles.noteContainer}>
 
-          <Button color={"#8B8B8B"} title={item.title} onPress={() => {navigation.navigate('Audio', {
+          <Button color={"#8B8B8B"} title="LOGARITHMS - CHANGE OF..." numberOfLines = { 1 } style={styles.buttonText} onPress={() => {navigation.navigate('Audio', {
             docName: item.title,
           });}} />
-          <TouchableOpacity styles={styles.trash} onPress={() =>
-            Alert.alert(
-              "Delete Note",
-              "Would you like to delete this note",
-              [
-                {
-                  text: "Yes",
-                  onPress: () => firebase.firestore().collection('Lectures').doc(item.key).delete(),
-                },
-                {
-                  text: "No",
-                  onPress: () => console.log("No Pressed"),
-                },
-              ],
-              { cancelable: true }
-            )
-          }>
+          <TouchableOpacity styles={styles.trash}>
             </TouchableOpacity>
             <TouchableOpacity><MaterialIcons style={styles.people} name="people" size={25} /></TouchableOpacity>
             <Text style={styles.one}>0</Text>
@@ -122,10 +106,9 @@ const styles = StyleSheet.create({
   buttonText: {
     fontFamily: "Avenir",
     fontSize: 20,
-    textAlign: "center",
+    textAlign: "left",
     color: "white",
     fontWeight: "bold",
-    textAlignVertical: "center",
   },
   textInput: {
     height: 65,
@@ -235,12 +218,12 @@ const styles = StyleSheet.create({
   },
   one: {
     left: 125,
-    top: 85,
+    top: 65,
     position: "absolute",
   },
   two: {
     left: 260,
-    top: 87,
+    top: 65,
     position: "absolute",
   },
   people: {
@@ -257,7 +240,7 @@ const styles = StyleSheet.create({
   },
   add: {
     left: 280,
-    top: -50,
+    top: -30,
     position: "absolute",
     color: "#F9A826",
   },
