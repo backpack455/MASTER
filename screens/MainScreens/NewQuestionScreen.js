@@ -41,9 +41,6 @@ export default function App({navigation}) {
     <View style={styles.container}>
       <Text style={styles.title}>Enter Your Question</Text>
       <TextInput style={styles.searchBar} placeholder="Type your question" />
-      <FlatList
-      data={users}
-      renderItem={({ item }) => (
         <View style={styles.noteContainer}>
 
           <Button color={"#8B8B8B"} title={item.title} onPress={() => {navigation.navigate('Audio', {
@@ -68,8 +65,6 @@ export default function App({navigation}) {
           }>
           </TouchableOpacity>
         </View>
-      )}
-    />
     <View style={styles.buttonContainer}>
         <TouchableOpacity onPress={()=> navigation.navigate('Start Lecture')}>
         <Image

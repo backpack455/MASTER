@@ -43,8 +43,24 @@ export default function App({navigation}) {
       <Text style={styles.subtitle}>Showing results for</Text>
       <Image
           source={require("./../../assets/result.png")}
-          style={{ top: 75 }}
+          style={{ top: 55, }}
         />
+        <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          style={styles.picture}
+          onPress={() => navigation.navigate("Option Navigation")}
+        >
+          <Image style={styles.brain} source={require("./../../assets/icons8-archive-folder-96.png")}/>
+          <Text style={styles.buttonText1}>Store Problem</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.lecture}
+          onPress={() => navigation.navigate("Discussions")}
+        >
+          <Image style={styles.brain} source={require("./../../assets/icons8-critical-thinking-96.png")}/>
+          <Text style={styles.buttonText2}>Solve Problem</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -68,13 +84,50 @@ const styles = StyleSheet.create({
     fontSize: 25,
     top: 45,
   },
-  buttonText: {
+  picture: {
+    backgroundColor: "#F9A826",
+    width: 234,
+    height: 56,
+    borderRadius: 12,
+    justifyContent: "center",
+    bottom: 40,
+    shadowOffset: { width: 0, height: 2 },
+    shadowColor: "black",
+    shadowOpacity: 0.25,
+  },
+  lecture: {
+    backgroundColor: "#F9A826",
+    width: 234,
+    height: 56,
+    borderRadius: 12,
+    justifyContent: "center",
+    shadowOffset: { width: 0, height: 2 },
+    shadowColor: "black",
+    shadowOpacity: 0.25,
+    bottom: 30,
+  },
+  brain: {
+    top: 13,
+  },
+  buttonText1: {
+    bottom: 30,
     fontFamily: "Avenir",
     fontSize: 20,
     textAlign: "center",
     color: "white",
     fontWeight: "bold",
     textAlignVertical: "center",
+    paddingLeft: 50,
+  },
+  buttonText2: {
+    bottom: 30, 
+    fontFamily: "Avenir",
+    fontSize: 20,
+    textAlign: "center",
+    color: "white",
+    fontWeight: "bold",
+    textAlignVertical: "center",
+    paddingLeft: 50,
   },
   textInput: {
     height: 65,
