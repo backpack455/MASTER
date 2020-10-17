@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ActivityIndicator } from 'react-native'
-import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView } from "react-native";
 import Firebasekeys from "../../config";
 import * as firebase from "firebase";
 import "firebase/firestore";
@@ -41,10 +41,12 @@ export default function App({navigation}) {
     <View style={styles.container}>
       <Text style={styles.title}>Problem Results</Text>
       <Text style={styles.subtitle}>Showing results for</Text>
+      <ScrollView style={{height: 200}}>
       <Image
-          source={require("./../../assets/result.png")}
-          style={{ top: 55, }}
-        />
+            source={require("./../../assets/result.png")}
+            style={{ top: 55 }}
+          />
+        </ScrollView>
         <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={styles.picture}
@@ -145,7 +147,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flex: 0.3,
     padding: 80,
-    top: 30,
   },
   options1Container: {
     padding: 10,

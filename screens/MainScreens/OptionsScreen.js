@@ -3,6 +3,7 @@ import { ActivityIndicator } from 'react-native'
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import Firebasekeys from "../../config";
 import * as firebase from "firebase";
+import ImagePicker from 'react-native-image-picker'
 import "firebase/firestore";
 
 import { FontAwesome5, AntDesign } from "@expo/vector-icons";
@@ -16,7 +17,17 @@ export default function App({navigation}) {
   const [loading, setLoading] = useState(true); // Set loading to true on component mount
   const [users, setUsers] = useState([]); // Initial empty array of users
   const ChooseImage = () => {
-    navigation.navigate('Problem Results')
+    // navigation.navigate('Problem Results')
+    const options = {
+      noData: true,
+    };
+    ImagePicker.launchImageLibrary(options, response => {
+      if (response.uri) {
+        // this.setState({ photo: response });
+        console.log(response.uri)
+        // this.processDocument(`${response.uri}`).then(() => console.log('Finished processing file.'));
+      }
+    });
   }
   useEffect(() => {
     const subscriber = firebase.firestore()

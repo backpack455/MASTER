@@ -1,0 +1,6 @@
+module Pods_notesai {
+  umbrella header "Pods-notesai-umbrella.h"
+
+  export *
+  module * { export * }
+}
