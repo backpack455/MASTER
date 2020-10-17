@@ -42,9 +42,6 @@ export default function App({navigation}) {
     <View style={styles.container}>
       <Text style={styles.title}>Discussions</Text>
       <TextInput style={styles.searchBar} placeholder="Search discussions" />
-      <FlatList
-      data={users}
-      renderItem={({ item }) => (
         <View style={styles.noteContainer}>
 
           <Button color={"#8B8B8B"} title="LOGARITHMS - CHANGE OF..." numberOfLines = { 1 } style={styles.buttonText} onPress={() => {navigation.navigate('Audio', {
@@ -56,11 +53,9 @@ export default function App({navigation}) {
             <Text style={styles.one}>0</Text>
             <Text style={styles.two}>0</Text>
             <TouchableOpacity><Entypo style={styles.message} name="chat" size={25} /></TouchableOpacity>
-            <TouchableOpacity><Entypo style={styles.add} name="add-to-list" size={30} /></TouchableOpacity>
+            <TouchableOpacity><Entypo style={styles.add} name="add-to-list" size={25} /></TouchableOpacity>
         </View>
-      )}
-    />
-    <View style={styles.buttonContainer}>
+      <View style={styles.buttonContainer}>
         <TouchableOpacity onPress={()=> navigation.navigate('Start Lecture')}>
           <View style={styles.addNoteContainer}>
             <AntDesign style={styles.addNote} name="plus" size={35} />
@@ -126,7 +121,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flex: 0.3,
     padding: 80,
-    top: 30,
+    top: 100,
   },
   options1Container: {
     padding: 10,
@@ -206,7 +201,7 @@ const styles = StyleSheet.create({
     paddingRight: 50,
     backgroundColor: "#ECECEC",
     borderRadius: 10,
-    marginBottom: 20,
+    marginBottom: 100,
     width: 350,
     textAlign: "left"
   },
@@ -217,30 +212,32 @@ const styles = StyleSheet.create({
     color: "#F9A826",
   },
   one: {
-    left: 125,
+    left: 115,
     top: 65,
     position: "absolute",
+    color: '#8E8E8E'
   },
   two: {
-    left: 260,
-    top: 65,
+    left: 250,
+    top: 67,
     position: "absolute",
+    color: '#8E8E8E'
   },
   people: {
-    left: 210,
+    left: 200,
     bottom: -30,
     position: "absolute",
     color: "#F9A826",
   },
   message: {
-    left: 70,
+    left: 60,
     bottom: -30,
     position: "absolute",
     color: "#F9A826",
   },
   add: {
     left: 280,
-    top: -30,
+    top: -34,
     position: "absolute",
     color: "#F9A826",
   },

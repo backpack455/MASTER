@@ -68,12 +68,14 @@ export default function App({navigation}) {
         </TouchableOpacity>
         <TouchableOpacity>
           <View style={styles.options3Container}>
+          <View style={{top: 5}}>
           <Image
           source={require("./../../assets/icons8-microphone-96.png")}
-          style={{ left: -15,}}
+          style={{ height: 58, width: 50, top: -5}}
         /> 
             <Text style={styles.option3Text}>Record</Text>
             <Text style={styles.option3Text}>Question</Text>
+          </View>
           </View>
         </TouchableOpacity>
         <TouchableOpacity>
@@ -156,7 +158,7 @@ const styles = StyleSheet.create({
     marginBottom: 40, 
   },
   option1Text: {
-    left: 90,
+    left: 80,
     color: "#fff",
     fontSize: 20,
     bottom: 60,
@@ -191,7 +193,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   option3Text: {
-    left: 60,
+    left: 50,
     color: "#fff",
     fontSize: 20,
     bottom: 60,
